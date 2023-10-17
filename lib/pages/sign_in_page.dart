@@ -215,6 +215,8 @@ class _SignInPageState extends State<SignInPage> {
                 toastDuration: const Duration(seconds: 2),
                 gravity: ToastGravity.BOTTOM,
               );
+            } else {
+              Navigator.pushNamed(context, '/home');
             }
           });
         },

@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:space/theme.dart';
 import 'package:space/widgets/home_category_item.dart';
+import 'package:space/widgets/home_popular_item.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,7 +12,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   int categoryIndex = 0;
 
   @override
@@ -184,7 +184,8 @@ class _HomePageState extends State<HomePage> {
                         margin: const EdgeInsets.only(right: 10),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: categoryIndex == 0 ? kBlackColor : kLineDarkColor,
+                          color:
+                              categoryIndex == 0 ? kBlackColor : kLineDarkColor,
                         ),
                       ),
                       Container(
@@ -193,7 +194,8 @@ class _HomePageState extends State<HomePage> {
                         margin: const EdgeInsets.only(right: 10),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: categoryIndex == 1 ? kBlackColor : kLineDarkColor,
+                          color:
+                              categoryIndex == 1 ? kBlackColor : kLineDarkColor,
                         ),
                       ),
                       Container(
@@ -202,12 +204,78 @@ class _HomePageState extends State<HomePage> {
                         margin: const EdgeInsets.only(right: 10),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: categoryIndex == 2 ? kBlackColor : kLineDarkColor,
+                          color:
+                              categoryIndex == 2 ? kBlackColor : kLineDarkColor,
                         ),
                       ),
                     ],
                   ),
-                )
+                ),
+
+                // NOTE : POPULAR PRODUCT
+                Container(
+                  margin: const EdgeInsets.only(top: 24),
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.vertical(
+                      top: Radius.circular(40),
+                    ),
+                    color: kWhiteColor,
+                  ),
+                  child: Column(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(24, 24, 24, 0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Popular',
+                              style: blackTextStyle.copyWith(
+                                fontWeight: semiBold,
+                                fontSize: 24,
+                              ),
+                            ),
+                            Text(
+                              'Show All',
+                              style: blackTextStyle,
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      SizedBox(
+                        height: 310,
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              HomePopularItem(
+                                imageUrl: 'assets/image_product_popular1.png',
+                                title: 'Poan Chair',
+                                price: 34,
+                                isWishlist: true,
+                              ),
+                              HomePopularItem(
+                                imageUrl: 'assets/image_product_popular2.png',
+                                title: 'Poo Chair',
+                                price: 14,
+                                isWishlist: false,
+                              ),
+                              HomePopularItem(
+                                imageUrl: 'assets/image_product_popular3.png',
+                                title: 'Soap Chair',
+                                price: 24,
+                                isWishlist: false,
+                              ),
+                              const SizedBox(width: 24),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 50),
+                    ],
+                  ),
+                ),
               ],
             ),
           ],

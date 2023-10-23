@@ -21,6 +21,11 @@ class _HomePageState extends State<HomePage> {
         bottomNavigationBar: ClipRRect(
           borderRadius: BorderRadius.circular(20),
           child: BottomNavigationBar(
+            onTap: (value) {
+              if(value == 1) {
+                Navigator.pushNamed(context, '/wishlist');
+              }
+            },
             showSelectedLabels: false,
             showUnselectedLabels: false,
             backgroundColor: kWhiteColor,
@@ -29,6 +34,7 @@ class _HomePageState extends State<HomePage> {
                 icon: Image.asset(
                   'assets/icon_home.png',
                   width: 24,
+                  color: kBlueColor,
                 ),
                 label: 'home',
               ),

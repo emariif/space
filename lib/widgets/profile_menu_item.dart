@@ -4,11 +4,13 @@ import 'package:space/theme.dart';
 class ProfileMenuItem extends StatelessWidget {
   final String iconUrl;
   final String title;
+  final bool isLightMode;
 
   const ProfileMenuItem({
     Key? key,
     required this.iconUrl,
     required this.title,
+    required this.isLightMode,
   }) : super(key: key);
 
   @override
@@ -22,6 +24,7 @@ class ProfileMenuItem extends StatelessWidget {
           Image.asset(
             iconUrl,
             width: 24,
+            color: isLightMode ? null : kWhiteColor,
           ),
           const SizedBox(
             width: 20,
@@ -30,7 +33,8 @@ class ProfileMenuItem extends StatelessWidget {
             title,
             style: blackAccentTextStyle.copyWith(
               fontSize: 18,
-              fontWeight: semiBold
+              fontWeight: semiBold,
+              color: isLightMode ? null : kWhiteColor,
             ),
           ),
           const Spacer(),
